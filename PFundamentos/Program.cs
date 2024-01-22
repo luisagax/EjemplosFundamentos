@@ -34,10 +34,10 @@ namespace PFundamentos
                 Console.Clear();
 
                 Console.WriteLine("Suma: {0} + {1} = {2}", n1, n2, Suma());
+                Console.WriteLine($"Suma: {n1} + {n2} = {Suma()}"); //<-- Solo funciona con la nueva versión de c#
                 Console.WriteLine("Resta: {0} - {1} = {2}", n1, n2, Resta());
                 Console.WriteLine("Multiplicación: " + n1 + " * " + n2 + " = " + Multiplicacion());
                 Console.WriteLine("División: {0} / {1} = {2}", n1, n2, Division());
-
 
                 decimal Suma()
                 {
@@ -58,6 +58,7 @@ namespace PFundamentos
                     return n1 / n2;
                 }
             }
+
             Console.ReadLine();
         }
     }
