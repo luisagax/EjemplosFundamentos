@@ -9,7 +9,7 @@ namespace PFundamentos
     {
         static void Main(string[] args)
         {
-            Calculadora();
+            SustitucionNombres();
             void Ejemplo1()
             {
                 int n1 = 5;
@@ -58,7 +58,15 @@ namespace PFundamentos
                     return n1 / n2;
                 }
             }
-
+            void SustitucionNombres()
+            {
+                string Nombre = "Carlos Ojeda";
+                string nsust()
+                {
+                    return Nombre.Replace("Carlos", "Carla");
+                }
+                Console.WriteLine(nsust());
+            }
             Console.ReadLine();
         }
     }
