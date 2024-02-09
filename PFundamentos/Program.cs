@@ -9,7 +9,7 @@ namespace PFundamentos
     {
         static void Main(string[] args)
         {
-            Arreglo2();
+            Arreglo4();
             void Ejemplo1()
             {
                 int n1 = 5;
@@ -134,13 +134,51 @@ namespace PFundamentos
                 }
 
                 //string[] s1 = { "uno", "dos", "tres" };
-
             }
             void Arreglo2()
             {
                 int n = 0;
-                string[] ListaMandado = new string[5];
-                double[] PrecioArticulos = new double[5];
+                string[] ListaMandado = new string[2];
+                double[] PrecioArticulos = new double[2];
+                int[] Cantidad = new int[2];
+                double[] SubTotal = new double[2];
+
+                Console.WriteLine("-- INGRESE LOS ARTICULOS AL CARRITO DE COMPRAS --");
+                for (int i = 0; i < ListaMandado.Length; i++)
+                {
+                    n++;
+                    Console.WriteLine($"{n}.");
+                    string res = Console.ReadLine();
+                    ListaMandado[i] = res;
+                    Console.WriteLine("Precio: ");
+                    double precio = double.Parse(Console.ReadLine());
+                    PrecioArticulos[i] = precio;
+                    Console.WriteLine("Cantidad del producto: ");
+                    int Cant = int.Parse(Console.ReadLine());
+                    Cantidad[i] = Cant;
+                    SubTotal[i] = PrecioArticulos[i] * Cantidad[i];
+                }
+                Console.Clear();
+                double Subtotal = 0, Total = 0;
+                for(int x = 0; x < 2; x++)
+                {
+                    Subtotal = SubTotal[x];
+                    Total = Total + Subtotal;
+                }
+                Console.WriteLine(" -- LISTA DE MANDADO --");
+                for (int y = 0; y < 2; y++)
+                {
+                    Console.WriteLine($"{ListaMandado[y]}  -  ${PrecioArticulos[y]}  -  #{Cantidad[y]}  -  Subtotal: ${SubTotal[y]}");
+                }
+                Console.WriteLine($"                                 Total: ${Total}");
+            }
+            void Arreglo3()
+            {
+                int n = 0;
+                string[] ListaMandado = new string[2];
+                double[] PrecioArticulos = new double[2];
+                int[] Cantidad = new int[2];
+                string[] SubTotal = new string[2];
 
                 Console.WriteLine("-- INGRESE LOS ARTICULOS AL CARRITO DE COMPRAS --");
                 for (int i = 0; i < ListaMandado.Length; i++)
@@ -154,21 +192,50 @@ namespace PFundamentos
                     PrecioArticulos[i] = precio;
                 }
                 Console.Clear();
-                double Subtotal = 0, Total = 0;
-                for(int x = 0; x < 5; x++)
-                {
-                    Subtotal = PrecioArticulos[x];
-                    Total = Total + Subtotal;
-                }
-                Console.WriteLine(" -- LISTA DE MANDADO --");
-                for (int y = 0; y < 5; y++)
+                
+                //Console.WriteLine(" -- LISTA DE MANDADO --");
+                for (int y = 0; y < 2; y++)
                 {
                     Console.WriteLine($"{ListaMandado[y]}  -  ${PrecioArticulos[y]}");
+                    Console.WriteLine("¿Cuantos articulos desea agregar?");
+                    int Cant = int.Parse(Console.ReadLine());
+                    Cantidad[y] = Cant;
+                    SubTotal[y] = (PrecioArticulos[y] * Cantidad[y]).ToString();
                 }
-                Console.WriteLine($"Total: ${Total}");
+                double Subtotal = 0, Total = 0;
+                for (int x = 0; x < 2; x++)
+                {
+                    Subtotal = Convert.ToDouble(SubTotal[x]);
+                    Total = Total + Subtotal;
+                }
+                Console.Clear();
+                for (int y = 0; y < 2; y++)
+                {
+                    Console.WriteLine($"{ListaMandado[y]}  -  #{Cantidad[y]}  -  ${SubTotal[y]}");
+                }
+                Console.WriteLine($"                     Total: ${Total}");
+            }
+            void Arreglo4()
+            {
+                double[] n1 = new double[5];
+
+                n1[0] = 5;
+                n1[1] = 4;
+                n1[2] = 3;
+                n1[3] = 2;
+                n1[4] = 1;
+
+                double Sumatoria = 0;
+                for (int i = 0; i < n1.Length; i++)
+                {
+                    Console.WriteLine($"{Sumatoria} = {Sumatoria} + {n1[i]}");
+                    Sumatoria = Sumatoria + n1[i];
+                    Console.WriteLine(Sumatoria);
+                }
             }
             #endregion
             Console.ReadLine();
         }
+
     }
 }
